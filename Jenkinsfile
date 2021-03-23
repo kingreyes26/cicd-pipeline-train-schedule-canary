@@ -15,6 +15,8 @@ pipeline {
         stage('Build Docker Image') {
             when {
                 branch 'master'
+            environment {
+                CANARY_REPLICAS = 1
             }
             steps {
                 script {
