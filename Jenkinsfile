@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         //be sure to replace "willbla" with your own Docker Hub username
-        DOCKER_IMAGE_NAME = "kingreyes26/train-schedule"
+        DOCKER_IMAGE_NAME = "willbla/train-schedule"
     }
     stages {
         stage('Build') {
@@ -15,8 +15,6 @@ pipeline {
         stage('Build Docker Image') {
             when {
                 branch 'master'
-            environment {
-                CANARY_REPLICAS = 1
             }
             steps {
                 script {
